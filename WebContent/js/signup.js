@@ -1,11 +1,11 @@
 $(document).ready(function(){
   console.log("doc ready");
   $("#signup").click(function(){
-    var login = {username : $("#username").val() , passcode : $("#passcode").val()};
+    var signup = {fname : $("#fname").val() , lname : $("#lname").val(), email : $("#email").val(), password : $("#password").val()};
     callback = function(data){
       console.log(data);
     };
-    post("/userDataEval", login , callback);
+    post("/signup", login , callback);
   });
 });
 
