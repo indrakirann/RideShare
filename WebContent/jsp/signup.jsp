@@ -10,7 +10,7 @@
 </head>
 <body>
 <h4>First Name : </h4> <input id="fname"><br>
-<h4>Last Name : </h4> <input id="fname"><br>
+<h4>Last Name : </h4> <input id="lname"><br>
 <h4>Email : </h4> <input id="email"><br>
 <h4>Password : </h4> <input id="password"><br><br>
 <button id="signup"> Submit </button>

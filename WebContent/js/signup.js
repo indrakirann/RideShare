@@ -5,7 +5,7 @@ $(document).ready(function(){
     callback = function(data){
       console.log(data);
     };
-    post("/signup", login , callback);
+    post("/RideShare/signup", signup , callback);
   });
 });
 

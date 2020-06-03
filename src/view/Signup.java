@@ -30,6 +30,11 @@ public class Signup extends HttpServlet {
 
 		SignupController c = new SignupController();
 		c.createUser(firstname, lastname, email , password);
+		System.out.println(firstname);
+		System.out.println(lastname);
+		System.out.println(email);
+		System.out.println(password);
+		
 	}
 
 }
