@@ -25,8 +25,8 @@ public class Connection {
 		return true;
 	}
 
-	public static MongoCollection<Document> readAllData(String dbName, String collectionName) {
-		MongoDatabase database = getConnection().getDatabase(dbName);
+	public static MongoCollection<Document> readAllData(String collectionName) {
+		MongoDatabase database = getConnection().getDatabase(DBNAME);
 		return database.getCollection(collectionName);
 
 	}
