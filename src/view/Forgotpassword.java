@@ -8,31 +8,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.SignupController;
+import controller.LoginController;
 
 
-@WebServlet("/signup")
-public class Signup extends HttpServlet {
+@WebServlet("/forgotpassword")
+public class Forgotpassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("/jsp/signup.jsp").forward(request, response);
+		request.getRequestDispatcher("/jsp/forgotpassword.jsp").forward(request, response);
 	}
 
 	// receives data
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String firstname = request.getParameter("fname");
-		String lastname = request.getParameter("lname");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		System.out.println(email);
 
-		SignupController c = new SignupController();
-		boolean signupError = c.createUser(firstname, lastname, email , password);
-		if (!signupError) {
+
+		LoginController l = new LoginController();
+		boolean loginError = l.checkUser(email);
+		if (loginError) {
 			System.out.println("Error");
 		}
+		//System.out.println("Success");
 		
 		
 	}

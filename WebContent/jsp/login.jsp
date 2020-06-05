@@ -5,17 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="./js/signup.js"></script>
-<title>Sign Up</title>
+  <script type="text/javascript" src="./js/login.js"></script>
+<title>Log In</title>
 </head>
 <body>
-<h4>First Name : </h4> <input id="fname"><br>
-<h4>Last Name : </h4> <input id="lname"><br>
 <h4>Email : </h4> <input id="email"><br>
 <h4>Password : </h4> <input id="password"><br><br>
-<button id="signup"> Submit </button>
-<form action = "http://localhost:8080/RideShare/login">
-  <input type = "submit" value = "Back to Login">
+<button id="login"> Log In </button>
+<form action = "http://localhost:8080/RideShare/signup">
+  <input type = "submit" value = "Sign Up">
+  </form>
+<form action = "http://localhost:8080/RideShare/signup">
+  <input type = "submit" value = "Forgot Password?">
   </form>
 </body>
 </html>

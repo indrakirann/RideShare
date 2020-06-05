@@ -1,7 +1,5 @@
 package controller;
 
-import model.User;
-
 import org.bson.Document;
 
 import com.mongodb.MongoClient;
@@ -12,29 +10,22 @@ import static com.mongodb.client.model.Filters.*;
 
 //import database.Connection;
 
-public class SignupController {
+public class LoginController {
 	private static final String DBNAME = "RideShare";
 
-	public boolean createUser(String firstname, String lastname, String email, String password) {
-		// check existing email, ensure no same users are being added
-		//create user in db
-		User u = new User(firstname, lastname, email, password);
+	public boolean checkUser(String email, String password) {
 		String uri = "mongodb+srv://admin:NEjfExHjfdi6cSrk@chiragcluster-cqkko.mongodb.net/test";
 		MongoClientURI clienturi = new MongoClientURI(uri);
 		@SuppressWarnings("resource")
 		MongoClient client = new MongoClient(clienturi);
 		MongoDatabase database = client.getDatabase(DBNAME);
 		MongoCollection<Document> collection = database.getCollection("MahekData");
-		if (collection.find(eq("Email", u.getEmail())).first() == null) {
-			System.out.println(u.getEmail());
-			Document doc = new Document("First Name", u.getFirstName())
-		              .append("Last Name", u.getLastName())
-		              .append("Email", u.getEmail())
-		              .append("Password", u.getPassword());
-			
-			collection.insertOne(doc);
-		//	return true;
+	
+		if ((collection.find(and(eq("Email", email), eq("Password", password))).first() != null)) {
+		
+			return true;
 		}
+
 		return false;
 	}
 }
