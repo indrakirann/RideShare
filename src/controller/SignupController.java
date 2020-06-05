@@ -15,7 +15,7 @@ import static com.mongodb.client.model.Filters.*;
 public class SignupController {
 	private static final String DBNAME = "RideShare";
 
-	public boolean createUser(String firstname, String lastname, String email, String password) {
+	public User createUser(String firstname, String lastname, String email, String password) {
 		// check existing email, ensure no same users are being added
 		//create user in db
 		User u = new User(firstname, lastname, email, password);
@@ -35,7 +35,7 @@ public class SignupController {
 			collection.insertOne(doc);
 		//	return true;
 		}
-		return false;
+		//return false;
 	}
 }
 	
