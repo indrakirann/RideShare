@@ -36,6 +36,7 @@ public class SignupController {
 		//	return true;
 		}
 		//return false;
+		return u;
 	}
 }
 	
