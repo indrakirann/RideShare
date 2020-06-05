@@ -36,6 +36,9 @@ public class SignupController {
 		//	return true;
 		}
 		//return false;
+
+		// save u in db
+
 		return u;
 	}
 }
