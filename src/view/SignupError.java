@@ -1,20 +1,22 @@
-package model;
+package view;
 
-public class User {
+public class SignupError {
 
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
-	private String rptpassword;
+	private boolean printError;
+	private boolean rptError;
 
-	public User(String firstName, String lastName, String email, String password, String rptpassword) {
+	public SignupError(String firstName, String lastName, String email, String password, boolean printError, boolean rptError) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
-		this.rptpassword = rptpassword;
+		this.printError = printError;
+		this.rptError = rptError;
 	}
 
 	public String getFirstName() {
@@ -49,12 +51,12 @@ public class User {
 		this.password = password;
 	}
 	
-	public String getrptPassword() {
-		return rptpassword;
+	public boolean getError() {
+		return printError;
 	}
-
-	public void rptPassword(String rptpassword) {
-		this.rptpassword = rptpassword;
-	} 
+	
+	public boolean getrptError() {
+		return rptError;
+	}
 
 }

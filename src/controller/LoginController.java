@@ -1,6 +1,8 @@
 package controller;
 
 import org.bson.Document;
+import view.LoginRequest;
+import view.UserLogin;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -12,8 +14,11 @@ import static com.mongodb.client.model.Filters.*;
 
 public class LoginController {
 	private static final String DBNAME = "RideShare";
+	public static boolean loginerror = false;
 
-	public boolean checkUser(String email, String password) {
+	public UserLogin checkUser(String email, String password) {
+		System.out.print(email);
+		LoginRequest l = new LoginRequest(email, password);
 		String uri = "mongodb+srv://admin:NEjfExHjfdi6cSrk@chiragcluster-cqkko.mongodb.net/test";
 		MongoClientURI clienturi = new MongoClientURI(uri);
 		@SuppressWarnings("resource")
@@ -21,12 +26,15 @@ public class LoginController {
 		MongoDatabase database = client.getDatabase(DBNAME);
 		MongoCollection<Document> collection = database.getCollection("MahekData");
 	
-		if ((collection.find(and(eq("Email", email), eq("Password", password))).first() != null)) {
-		
-			return true;
+		if ((collection.find(and(eq("Email", l.getEmail()), eq("Password", l.getPassword()))).first() == null)) {
+			loginerror = true;
+			UserLogin u = new UserLogin(email, password, loginerror);
+			return u;
+			
 		}
-
-		return false;
+		loginerror = false;
+		UserLogin u = new UserLogin(email, password, loginerror);
+		return u;
 	}
 }
 	

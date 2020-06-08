@@ -30,19 +30,11 @@ public class Signup extends HttpServlet {
 		String lastname = request.getParameter("lname");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-
+		String rptpassword = request.getParameter("rptpassword");
+		
 		SignupController c = new SignupController();
-		//boolean signupError = 
-		c.createUser(firstname, lastname, email , password);
-		/*if (!signupError) {
-			System.out.println("Error");
-		}
-		*/
-		System.out.println(firstname);
-		System.out.println(lastname);
-		System.out.println(email);
-		System.out.println(password);
-		response(response, c.createUser(firstname, lastname, email, password));
+		SignupError signupError = c.frontCreateUser(firstname, lastname, email , password, rptpassword);
+		response(response, signupError);
 
 	}
 
