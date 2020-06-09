@@ -144,7 +144,7 @@ $(document).ready(function(){
 <div class="container">
 
   <h1 align = "center">Log In</h1>
-  <p align = "center">New to Ride Share? Sign up!</p>
+  <p align = "center">New to Ride Share? Sign Up!</p>
   <hr>
    <p class="fielderror"></p>
 
