@@ -6,13 +6,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
+body{
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
 .card {
+  background-color:white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  margin: auto;
+  max-width: 500px;
   text-align: center;
+  align: center;
   font-family: arial;
-  background-color: white;
+  margin: 0% auto 0% auto; /* 2% from the top, 2% from the bottom and centered */
+  margin-top: 200px;
 }
 
 .title {
@@ -39,22 +52,12 @@ a {
   color: black;
 }
 
-button:hover, a:hover {
-  opacity: 0.7;
-}
-.circle {
+.logo {
   border-radius: 50%;
 }
-body {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: #474e5d;
-  padding-top: 50px;
+
+button:hover, a:hover {
+  opacity: 0.7;
 }
 </style>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -63,8 +66,6 @@ body {
 </head>
 <body>
 <body>
-
-<h2 style="text-align:center">User Profile Card</h2>
 
 <div class = "container">
 <div class="card">
@@ -83,11 +84,12 @@ var loadFile = function(event) {
 };
 </script>
 
-  <img src="/w3images/team2.jpg" alt="John" style="width:100%">
+  <img src="http://localhost:8080/RideShare/jsp/profileCircle.png" id = "logo" alt="Avatar" style="width:200px">
   <h1 >Mahek Maheshwari</h1>
-  <p class="title" contenteditable = "true">Software Engineer | Film Enthusiast</p>
+  <p class="title" contenteditable = "true">Software Engineer | Film Enthusiast</p><br>
   <p>University of California, Berkeley</p>
   <p>Electrical Engineering and Computer Science</p>
+  <br>
   <div style="margin: 24px 0;">
     <a href="#"><i class="fa fa-dribbble"></i></a> 
     <a href="#"><i class="fa fa-twitter"></i></a>  

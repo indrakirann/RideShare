@@ -77,7 +77,9 @@ body {
   background-color: #474e5d;
   padding-top: 50px;
 }
-
+.emailerror, .rpterror{
+	color: red;
+}
 </style>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="./js/signup.js"></script>
@@ -88,9 +90,22 @@ $(document).ready(function(){
 	    var signup = {fname : $("#fname").val() , lname : $("#lname").val(), email : $("#email").val(), 
 	    		password : $("#password").val(), rptpassword : $("#rptpassword").val()};
 	    callback = function(data){
-	        console.log(data);
-	        //var signupError = JSON.parse(data);
-	        //document.getElementById("demo").innerHTML = signupErorr.error;
+	    	console.log(data);
+	    console.log(data.varError);
+	    if(data.printError){
+	     	$(".rpterror").hide();
+       	 	$(".emailerror").show();	        	 
+       	 	$(".emailerror").text("Email is already in use. Please try again,");		
+       	 
+	    }else if (data.rptError){
+       	 	$(".emailerror").hide();
+       	 	$(".rpterror").show();	        	 
+       	 	$(".rpterror").text("Passwords do not match. Please try again.");	
+       	 
+       } else{
+       	 	$(".emailerror").hide();
+       	 	$(".rpterror").hide();
+        }
 	    };
 	    post("/RideShare/signup", signup , callback);
 	    
@@ -123,12 +138,15 @@ $(document).ready(function(){
   
   <label for="email"><b>Email</b></label>
   <input type="text" id = "email" placeholder="Enter Email" name="email" required>
+  <p class="emailerror"></p>
 
    <label for="password"><b>Password</b></label>
    <input type="password" id = "password" placeholder="Enter Password" name="password" required>
 
    <label for="rptpassword"><b>Repeat Password</b></label>
    <input type="password" id = "rptpassword" placeholder="Repeat Password" name="rptpassword" required>
+   <p class="rpterror"></p>
+   
    <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
    </label>
@@ -137,9 +155,10 @@ $(document).ready(function(){
 <form action = "http://localhost:8080/RideShare/login">
   <button id="login" class = "login"> Back to Login </button>
   </form>
-<form action = "http://localhost:8080/RideShare/login">
-  <button id="signup" class = "signup"> Submit </button>
-  </form>
+    <button id="signup" class = "signup"> Submit </button>
+<!--  <form action = "http://localhost:8080/RideShare/login">
+
+  </form> -->
 </div>
 </body>
 

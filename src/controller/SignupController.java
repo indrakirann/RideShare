@@ -27,12 +27,6 @@ public class SignupController {
 	
 	public SignupError frontCreateUser(String firstname, String lastname, String email, String password, String rptpassword) {
 		User u = new User(firstname, lastname, email.toLowerCase(), password, rptpassword);
-		if(!(u.getPassword().equals(u.getrptPassword()))) {
-			rptError = true;
-			SignupError returnError = new SignupError(firstname, lastname, email, password, varError, rptError);
-			return returnError;
-			
-		}
 		String uri = "mongodb+srv://admin:NEjfExHjfdi6cSrk@chiragcluster-cqkko.mongodb.net/test";
 		MongoClientURI clienturi = new MongoClientURI(uri);
 		@SuppressWarnings("resource")
@@ -49,8 +43,13 @@ public class SignupController {
 			varError = false;
 			collection.insertOne(doc);
 			//returns false if there is no error
-			SignupError returnError = new SignupError(firstname, lastname, email, password, varError, rptError);
-			return returnError;
+			if(!(u.getPassword().equals(u.getrptPassword()))) {
+				varError = false;
+				rptError = true;
+				SignupError returnError = new SignupError(firstname, lastname, email, password, varError, rptError);
+				return returnError;
+				
+			}
 		}
 		//returns true if there is an error
 		varError = true;

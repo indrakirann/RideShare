@@ -4,13 +4,15 @@ public class UserLogin {
 
 	private String email;
 	private String password;
-	private Boolean loginerror;
+	private Boolean usererror;
+	private Boolean passerror;
 
-	public UserLogin(String email, String password, Boolean loginerror) {
+	public UserLogin(String email, String password, Boolean usererror, Boolean passerror) {
 		super();
 		this.email = email;
 		this.password = password;
-		this.loginerror = loginerror;
+		this.usererror = usererror;
+		this.passerror = passerror;
 	}
 
 	public String getEmail() {
@@ -25,7 +27,10 @@ public class UserLogin {
 		return password;
 	}
 
-	public Boolean getloginerror() {
-		return loginerror;
+	public Boolean getusererror() {
+		return usererror;
+	}
+	public Boolean getpasserror() {
+		return passerror;
 	}
 }

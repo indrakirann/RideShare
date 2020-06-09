@@ -6,16 +6,16 @@ public class SignupError {
 	private String lastName;
 	private String email;
 	private String password;
-	private boolean printError;
+	private boolean varError;
 	private boolean rptError;
 
-	public SignupError(String firstName, String lastName, String email, String password, boolean printError, boolean rptError) {
+	public SignupError(String firstName, String lastName, String email, String password, boolean varError, boolean rptError) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
-		this.printError = printError;
+		this.varError = varError;
 		this.rptError = rptError;
 	}
 
@@ -52,7 +52,7 @@ public class SignupError {
 	}
 	
 	public boolean getError() {
-		return printError;
+		return varError;
 	}
 	
 	public boolean getrptError() {

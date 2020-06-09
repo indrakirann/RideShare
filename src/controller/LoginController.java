@@ -14,7 +14,8 @@ import static com.mongodb.client.model.Filters.*;
 
 public class LoginController {
 	private static final String DBNAME = "RideShare";
-	public static boolean loginerror = false;
+	public static boolean usererror = false;
+	public static boolean passerror = false;
 
 	public UserLogin checkUser(String email, String password) {
 		System.out.print(email);
@@ -25,15 +26,23 @@ public class LoginController {
 		MongoClient client = new MongoClient(clienturi);
 		MongoDatabase database = client.getDatabase(DBNAME);
 		MongoCollection<Document> collection = database.getCollection("MahekData");
+		if ((collection.find(eq("Email", l.getEmail())).first() == null)) {
+			usererror = true;
+			passerror=false;
+			UserLogin u = new UserLogin(email, password, usererror, passerror);
+			return u;
+		}
+	
 	
 		if ((collection.find(and(eq("Email", l.getEmail()), eq("Password", l.getPassword()))).first() == null)) {
-			loginerror = true;
-			UserLogin u = new UserLogin(email, password, loginerror);
+			passerror = true;
+			UserLogin u = new UserLogin(email, password, usererror, passerror);
 			return u;
 			
 		}
-		loginerror = false;
-		UserLogin u = new UserLogin(email, password, loginerror);
+		usererror = false;
+		passerror = false;
+		UserLogin u = new UserLogin(email, password, usererror, passerror);
 		return u;
 	}
 }
