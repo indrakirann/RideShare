@@ -57,14 +57,15 @@ hr {
 }
 /* Add padding to container elements */
 .container {
-  padding: 40px;
-}
-.container {
   background-color: #fefefe;
   margin: 0% auto 0% auto; /* 2% from the top, 2% from the bottom and centered */
   border: 1px solid #888;
-  width: 90%;
-  height: 95%;
+  width: 50%;
+  height: 100%;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 body {
   position: fixed; /* Stay in place */
@@ -72,13 +73,19 @@ body {
   left: 0;
   top: 0;
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  /*height: 100%;  Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: #474e5d;
-  padding-top: 50px;
+  padding-top: 45px;
+  margin-bottom: 200px;
+}
+.fielderror{
+    color: red;
 }
 .emailerror, .rpterror{
 	color: red;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 </style>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -87,27 +94,55 @@ body {
 $(document).ready(function(){
 	  console.log("doc ready");
 	  $("#signup").click(function(){
-	    var signup = {fname : $("#fname").val() , lname : $("#lname").val(), email : $("#email").val(), 
-	    		password : $("#password").val(), rptpassword : $("#rptpassword").val()};
-	    callback = function(data){
-	    	console.log(data);
-	    console.log(data.varError);
-	    if(data.printError){
-	     	$(".rpterror").hide();
-       	 	$(".emailerror").show();	        	 
-       	 	$(".emailerror").text("Email is already in use. Please try again,");		
-       	 
-	    }else if (data.rptError){
-       	 	$(".emailerror").hide();
-       	 	$(".rpterror").show();	        	 
-       	 	$(".rpterror").text("Passwords do not match. Please try again.");	
-       	 
-       } else{
-       	 	$(".emailerror").hide();
-       	 	$(".rpterror").hide();
-        }
-	    };
-	    post("/RideShare/signup", signup , callback);
+		    if(document.getElementById("fname").value ==""){
+				$(".fielderror").show();	        	 
+	       		$(".fielderror").text("Please fill in all the required fields.");	
+	       		$("#fname").css("outline", "2px solid red");
+		    } if(document.getElementById("lname").value ==""){
+				$(".fielderror").show();	        	 
+	       		$(".fielderror").text("Please fill in all the required fields.");
+	       		$("#lname").css("outline", "2px solid red");
+			} if(document.getElementById("email").value ==""){
+				$(".fielderror").show();	        	 
+	       		$(".fielderror").text("Please fill in all the required fields.");
+	       		$("#email").css("outline", "2px solid red");
+			} if(document.getElementById("password").value ==""){
+				$(".fielderror").show();	        	 
+	       		$(".fielderror").text("Please fill in all the required fields.");
+	       		$("#password").css("outline", "2px solid red");
+			} if(document.getElementById("rptpassword").value ==""){
+				$(".fielderror").show();	        	 
+	       		$(".fielderror").text("Please fill in all the required fields.");
+	       		$("#rptpassword").css("outline", "2px solid red");
+			}else if(!(document.getElementById("email").value.includes("@"))){
+				$(".emailerror").show();	        	 
+	       		$(".emailerror").text("Please enter a vaild email.");
+	       		$("#email").css("outline", "2px solid red");
+			}else{
+			    var signup = {fname : $("#fname").val() , lname : $("#lname").val(), email : $("#email").val(), 
+			    		password : $("#password").val(), rptpassword : $("#rptpassword").val()};
+			    callback = function(data){
+			    console.log(data);
+			    console.log(data.error);
+			    if(data.varError){
+			     	$(".rpterror").hide();
+		       	 	$(".emailerror").show();	        	 
+		       	 	$(".emailerror").text("Email is already in use. Please try again.");
+		       	 	$("#email").css("outline", "2px solid red");
+		       	 
+			    }else if (data.rptError){
+		       	 	$(".emailerror").hide();
+		       	 	$(".rpterror").show();	        	 
+		       	 	$(".rpterror").text("Passwords do not match. Please try again.");	
+		       	    $("#password").css("outline", "2px solid red");
+		       	 	$("#rptpassword").css("outline", "2px solid red");
+		       } else{
+		       	 	$(".emailerror").hide();
+		       	 	$(".rpterror").hide();
+		        }
+			    };
+			    post("/RideShare/signup", signup , callback);
+			}
 	    
 	  });
 	});
@@ -129,7 +164,7 @@ $(document).ready(function(){
   <h1>Sign Up</h1>
   <p>Please fill in this form to create an account.</p>
   <hr>
-      
+  <p class = "fielderror"> </p>
   <label for="fname"><b>First Name</b></label>
   <input type="text" id = "fname" placeholder="First Name" name="fname" required>
   
@@ -155,10 +190,10 @@ $(document).ready(function(){
 <form action = "http://localhost:8080/RideShare/login">
   <button id="login" class = "login"> Back to Login </button>
   </form>
-    <button id="signup" class = "signup"> Submit </button>
 <!--  <form action = "http://localhost:8080/RideShare/login">
-
-  </form> -->
+</form> -->
+  <button id="signup" class = "signup"> Submit </button>
+  
 </div>
 </body>
 

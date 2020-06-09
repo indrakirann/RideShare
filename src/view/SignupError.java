@@ -51,7 +51,7 @@ public class SignupError {
 		this.password = password;
 	}
 	
-	public boolean getError() {
+	public boolean getvarError() {
 		return varError;
 	}
 	

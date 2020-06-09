@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import controller.SignupController;
+import view.SignupError;
 
 @WebServlet("/signup")
 public class Signup extends HttpServlet {
@@ -34,6 +35,8 @@ public class Signup extends HttpServlet {
 		
 		SignupController c = new SignupController();
 		SignupError signupError = c.frontCreateUser(firstname, lastname, email , password, rptpassword);
+		System.out.println(signupError.getvarError());
+		System.out.println(signupError.getrptError());
 		response(response, signupError);
 
 	}

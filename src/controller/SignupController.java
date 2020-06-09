@@ -33,29 +33,33 @@ public class SignupController {
 		MongoClient client = new MongoClient(clienturi);
 		MongoDatabase database = client.getDatabase(DBNAME);
 		MongoCollection<Document> collection = database.getCollection("MahekData");
+		if ((collection.find(eq("Email", u.getEmail())).first() != null)) {
+			varError = true;
+			SignupError returnError = new SignupError(firstname, lastname, email, password, varError, rptError);
+			return returnError;
+		} else if(!(u.getPassword().equals(u.getrptPassword()))) {
+			varError = false;
+			rptError = true;
+			SignupError returnError = new SignupError(firstname, lastname, email, password, varError, rptError);
+			return returnError;
+		}
 		
-		if ((collection.find(eq("Email", u.getEmail())).first() == null)) {
+		else {
 			System.out.println(u.getEmail());
 			Document doc = new Document("First Name", u.getFirstName())
 		              .append("Last Name", u.getLastName())
 		              .append("Email", u.getEmail())
 		              .append("Password", u.getPassword());
 			varError = false;
+			rptError = false;
 			collection.insertOne(doc);
+			SignupError returnError = new SignupError(firstname, lastname, email, password, varError, rptError);
+			return returnError;
+			
 			//returns false if there is no error
-			if(!(u.getPassword().equals(u.getrptPassword()))) {
-				varError = false;
-				rptError = true;
-				SignupError returnError = new SignupError(firstname, lastname, email, password, varError, rptError);
-				return returnError;
+			//if ((collection.find(eq("Email", u.getEmail())).first() == null))
 				
 			}
-		}
-		//returns true if there is an error
-		varError = true;
-		SignupError returnError = new SignupError(firstname, lastname, email, password, varError, rptError);
-		return returnError;
-
 	}
 	
 }
