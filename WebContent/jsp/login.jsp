@@ -106,7 +106,7 @@ $(document).ready(function(){
 		        if(data.usererror){
 		        	 $(".passerror").hide();
 		        	 $(".usererror").show();	        	 
-		        	 $(".usererror").text("Incorrect username. Please try again.");	
+		        	 $(".usererror").text("Incorrect email. Please try again.");	
 		        	 $("#email").css("outline", "2px solid red");	
 		        	 
 		        	 

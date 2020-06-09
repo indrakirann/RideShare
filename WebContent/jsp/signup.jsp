@@ -139,6 +139,8 @@ $(document).ready(function(){
 		       } else{
 		       	 	$(".emailerror").hide();
 		       	 	$(".rpterror").hide();
+		       	 	window.location.replace("http://localhost:8080/RideShare/login");
+		       	 	
 		        }
 			    };
 			    post("/RideShare/signup", signup , callback);
