@@ -26,7 +26,7 @@ button {
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
-  border: none;
+  border: blue;
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
@@ -144,7 +144,8 @@ $(document).ready(function(){
 <div class="container">
 
   <h1 align = "center">Log In</h1>
-  <p align = "center">New to Ride Share? Sign Up!</p>
+  <p align = "center"><b>New to Ride Share? </b><a href="http://localhost:8080/RideShare/signup"><STYLE>A {text-decoration: none;} </STYLE>Sign up!</a></p>
+
   <hr>
    <p class="fielderror"></p>
 

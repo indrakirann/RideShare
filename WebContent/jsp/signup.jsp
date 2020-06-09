@@ -164,7 +164,7 @@ $(document).ready(function(){
 <body>
 <div class="container">
   <h1>Sign Up</h1>
-  <p>Please fill in this form to create an account.</p>
+  <p><b>Please fill in this form to create an account. Already have an account?</b> <a href="http://localhost:8080/RideShare/login">Login!</a></p>
   <hr>
   <p class = "fielderror"> </p>
   <label for="fname"><b>First Name</b></label>
