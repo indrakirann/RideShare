@@ -35,8 +35,6 @@ public class Signup extends HttpServlet {
 		
 		SignupController c = new SignupController();
 		SignupError signupError = c.frontCreateUser(firstname, lastname, email , password, rptpassword);
-		System.out.println(signupError.getvarError());
-		System.out.println(signupError.getrptError());
 		response(response, signupError);
 
 	}

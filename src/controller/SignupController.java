@@ -2,7 +2,7 @@ package controller;
 
 import model.User;
 import view.SignupError;
-
+import database.Connection;
 import org.bson.Document;
 
 import com.mongodb.MongoClient;
@@ -17,13 +17,7 @@ public class SignupController {
 	private static final String DBNAME = "RideShare";
 	public boolean varError = false;
 	public boolean rptError = false;
-	
-	public User createUser(String firstname, String lastname, String email, String password, String rptpassword) {
-		// check existing email, ensure no same users are being added
-		//create user in db
-		User u = new User(firstname, lastname, email.toLowerCase(), password, rptpassword);
-		return u;
-	}
+	public boolean connectionWorks = false;
 	
 	public SignupError frontCreateUser(String firstname, String lastname, String email, String password, String rptpassword) {
 		User u = new User(firstname, lastname, email.toLowerCase(), password, rptpassword);
@@ -45,11 +39,14 @@ public class SignupController {
 		}
 		
 		else {
+			
 			System.out.println(u.getEmail());
 			Document doc = new Document("First Name", u.getFirstName())
 		              .append("Last Name", u.getLastName())
 		              .append("Email", u.getEmail())
 		              .append("Password", u.getPassword());
+			Connection c = new Connection();
+			connectionWorks = c.save("MahekData", doc);
 			varError = false;
 			rptError = false;
 			collection.insertOne(doc);

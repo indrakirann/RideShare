@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="signup.css" media="screen"/>
 <style>
@@ -168,20 +169,20 @@ $(document).ready(function(){
   <hr>
   <p class = "fielderror"> </p>
   <label for="fname"><b>First Name</b></label>
-  <input type="text" id = "fname" placeholder="First Name" name="fname" required>
+  <input type="text" id = "fname" placeholder="First Name" name="fname">
   
   <label for="lname"><b>Last Name</b></label>
-  <input type="text" id = "lname" placeholder="Last Name" name="lname" required>
+  <input type="text" id = "lname" placeholder="Last Name" name="lname">
   
   <label for="email"><b>Email</b></label>
-  <input type="text" id = "email" placeholder="Enter Email" name="email" required>
+  <input type="text" id = "email" placeholder="Enter Email" name="email">
   <p class="emailerror"></p>
 
    <label for="password"><b>Password</b></label>
-   <input type="password" id = "password" placeholder="Enter Password" name="password" required>
+   <input type="password" id = "password" placeholder="Enter Password" name="password">
 
    <label for="rptpassword"><b>Repeat Password</b></label>
-   <input type="password" id = "rptpassword" placeholder="Repeat Password" name="rptpassword" required>
+   <input type="password" id = "rptpassword" placeholder="Repeat Password" name="rptpassword">
    <p class="rpterror"></p>
    
    <label>

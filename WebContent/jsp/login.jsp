@@ -75,6 +75,7 @@ body {
 }
 </style>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script type="text/javascript" src="./js/login.js"></script>
@@ -150,11 +151,11 @@ $(document).ready(function(){
 
 <label for="email"><b>Email</b></label>
  <div class = "userborder">
- <input type="text" id = "email" placeholder="Email" name="email" required></div>
+ <input type="text" id = "email" placeholder="Email" name="email"></div>
 <p class="usererror"></p>
 <label for="password"><b>Password</b></label>
  <div class = "passborder">
- <input type="password" id = "password" placeholder="Password" name="password" required></div>
+ <input type="password" id = "password" placeholder="Password" name="password"></div>
 <p class="passerror"></p>
    <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me

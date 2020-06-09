@@ -26,6 +26,7 @@ public class LoginController {
 		MongoClient client = new MongoClient(clienturi);
 		MongoDatabase database = client.getDatabase(DBNAME);
 		MongoCollection<Document> collection = database.getCollection("MahekData");
+		
 		if ((collection.find(eq("Email", l.getEmail())).first() == null)) {
 			usererror = true;
 			passerror=false;
