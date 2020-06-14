@@ -70,6 +70,7 @@ button:hover, a:hover {
 <div class = "container">
 <div class="card">
 
+
 <img src="/Users/mahekProgramming/eclipse-workspace/RideShare/WebContent/jsp/profileCircle.png">
 
 
@@ -84,7 +85,8 @@ var loadFile = function(event) {
 };
 </script>
 
-  <img src="http://localhost:8080/RideShare/jsp/profileCircle.png" id = "logo" alt="Avatar" style="width:200px">
+  <img src="http://localhost:8080/RideShare/images/profileCircle.png" id = "logo" alt="Avatar" style="width:200px">
+  <input type = "image" src = "http://localhost:8080/RideShare/images/profileCircle.png" alt = "Submit" accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
   <h1 >Mahek Maheshwari</h1>
   <p class="title" contenteditable = "true">Software Engineer | Film Enthusiast</p><br>
   <p>University of California, Berkeley</p>

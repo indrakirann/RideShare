@@ -3,13 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="signup.css" media="screen"/>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
-
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
@@ -24,7 +22,6 @@ input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
-
 /* Set a style for all buttons */
 button {
   background-color: #4CAF50;
@@ -36,18 +33,15 @@ button {
   width: 100%;
   opacity: 0.9;
 }
-
 .login {
   padding: 14px 20px;
   background-color: #f44336;
 }
-
 /* Float cancel and signup buttons and add an equal width */
 .signup, .login {
   float: left;
   width: 50%;
 }
-
 button:hover {
   opacity:1;
 }
@@ -95,62 +89,63 @@ body {
 $(document).ready(function(){
 	  console.log("doc ready");
 	  $("#signup").click(function(){
+      $(".fielderror").hide();
+      $("#fname").css("outline", "none");
+      $("#lname").css("outline", "none");
+      $("#email").css("outline", "none");
+      $("#password").css("outline", "none");
+      $("#rptpassword").css("outline", "none");
 		    if(document.getElementById("fname").value ==""){
-				$(".fielderror").show();	        	 
-	       		$(".fielderror").text("Please fill in all the required fields.");	
+				$(".fielderror").show();
+	       		$(".fielderror").text("Please fill in all the required fields.");
 	       		$("#fname").css("outline", "2px solid red");
 		    } if(document.getElementById("lname").value ==""){
-				$(".fielderror").show();	        	 
+				$(".fielderror").show();
 	       		$(".fielderror").text("Please fill in all the required fields.");
 	       		$("#lname").css("outline", "2px solid red");
 			} if(document.getElementById("email").value ==""){
-				$(".fielderror").show();	        	 
+				$(".fielderror").show();
 	       		$(".fielderror").text("Please fill in all the required fields.");
 	       		$("#email").css("outline", "2px solid red");
 			} if(document.getElementById("password").value ==""){
-				$(".fielderror").show();	        	 
+				$(".fielderror").show();
 	       		$(".fielderror").text("Please fill in all the required fields.");
 	       		$("#password").css("outline", "2px solid red");
 			} if(document.getElementById("rptpassword").value ==""){
-				$(".fielderror").show();	        	 
+				$(".fielderror").show();
 	       		$(".fielderror").text("Please fill in all the required fields.");
 	       		$("#rptpassword").css("outline", "2px solid red");
 			}else if(!(document.getElementById("email").value.includes("@"))){
-				$(".emailerror").show();	        	 
-	       		$(".emailerror").text("Please enter a vaild email.");
+				$(".fielderror").show();
+	       		$(".fielderror").text("Please enter a vaild email.");
 	       		$("#email").css("outline", "2px solid red");
 			}else{
-			    var signup = {fname : $("#fname").val() , lname : $("#lname").val(), email : $("#email").val(), 
+			    var signup = {fname : $("#fname").val() , lname : $("#lname").val(), email : $("#email").val(),
 			    		password : $("#password").val(), rptpassword : $("#rptpassword").val()};
 			    callback = function(data){
 			    console.log(data);
 			    console.log(data.error);
 			    if(data.varError){
-			     	$(".rpterror").hide();
-		       	 	$(".emailerror").show();	        	 
-		       	 	$(".emailerror").text("Email is already in use. Please try again.");
+		       	 	$(".fielderror").show();
+		       	 	$(".fielderror").text("Email is already in use. Please try again.");
 		       	 	$("#email").css("outline", "2px solid red");
-		       	 
+
 			    }else if (data.rptError){
-		       	 	$(".emailerror").hide();
-		       	 	$(".rpterror").show();	        	 
-		       	 	$(".rpterror").text("Passwords do not match. Please try again.");	
+		       	 	$(".fielderror").show();
+		       	 	$(".fielderror").text("Passwords do not match. Please try again.");
 		       	    $("#password").css("outline", "2px solid red");
 		       	 	$("#rptpassword").css("outline", "2px solid red");
 		       } else{
-		       	 	$(".emailerror").hide();
-		       	 	$(".rpterror").hide();
+		       	 	$(".fielderror").hide();
 		       	 	window.location.replace("http://localhost:8080/RideShare/login");
-		       	 	
+
 		        }
 			    };
 			    post("/RideShare/signup", signup , callback);
 			}
-	    
+
 	  });
 	});
-
-
 	function post(url , data , callback){
 	  $.ajax({
 	    type: "POST",
@@ -161,30 +156,28 @@ $(document).ready(function(){
 	}
 </script>
 <title>Sign Up</title>
-</head> 
+</head>
 <body>
 <div class="container">
   <h1>Sign Up</h1>
-  <p>Please fill in this form to create an account.</p>
+  <p><b>Please fill in this form to create an account. Already have an account?</b> <a href="http://localhost:8080/RideShare/login">Login!</a></p>
   <hr>
   <p class = "fielderror"> </p>
   <label for="fname"><b>First Name</b></label>
   <input type="text" id = "fname" placeholder="First Name" name="fname">
-  
+
   <label for="lname"><b>Last Name</b></label>
   <input type="text" id = "lname" placeholder="Last Name" name="lname">
-  
+
   <label for="email"><b>Email</b></label>
   <input type="text" id = "email" placeholder="Enter Email" name="email">
-  <p class="emailerror"></p>
 
    <label for="password"><b>Password</b></label>
    <input type="password" id = "password" placeholder="Enter Password" name="password">
 
    <label for="rptpassword"><b>Repeat Password</b></label>
    <input type="password" id = "rptpassword" placeholder="Repeat Password" name="rptpassword">
-   <p class="rpterror"></p>
-   
+
    <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
    </label>
@@ -196,7 +189,7 @@ $(document).ready(function(){
 <!--  <form action = "http://localhost:8080/RideShare/login">
 </form> -->
   <button id="signup" class = "signup"> Submit </button>
-  
+
 </div>
 </body>
 

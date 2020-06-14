@@ -1,5 +1,7 @@
 package database;
 
+import static com.mongodb.client.model.Filters.eq;
+
 import org.bson.Document;
 
 import com.mongodb.MongoClient;
@@ -17,8 +19,14 @@ public class Connection {
 		return mongoclient;
 
 	}
+	public static MongoCollection<Document> saveCollection(String CollectionName) {
+		
+		MongoDatabase database = getConnection().getDatabase(DBNAME);
+		MongoCollection<Document> collection = database.getCollection(CollectionName);
+		return collection;
+	}
 
-	public static boolean save(String CollectionName, Document doc) {
+	public static boolean saveDoc(String CollectionName, Document doc) {
 		MongoDatabase database = getConnection().getDatabase(DBNAME);
 		MongoCollection<Document> collection = database.getCollection(CollectionName);
 		collection.insertOne(doc);
@@ -30,5 +38,11 @@ public class Connection {
 		return database.getCollection(collectionName);
 
 	}
+	
+	public static boolean attributeExists(MongoCollection<Document> collection, String attribute1, String attribute2) {
+		return (collection.find(eq(attribute1, attribute2)).first() != null);
+	}
+	
+	
 
 }

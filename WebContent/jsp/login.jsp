@@ -1,4 +1,3 @@
-  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,7 +25,7 @@ button {
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
-  border: none;
+  border: blue;
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
@@ -75,7 +74,6 @@ body {
 }
 </style>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script type="text/javascript" src="./js/login.js"></script>
@@ -145,17 +143,18 @@ $(document).ready(function(){
 <div class="container">
 
   <h1 align = "center">Log In</h1>
-  <p align = "center">New to Ride Share? Sign Up!</p>
+  <p align = "center"><b>New to Ride Share? </b><a href="http://localhost:8080/RideShare/signup"><STYLE>A {text-decoration: none;} </STYLE>Sign up!</a></p>
+
   <hr>
    <p class="fielderror"></p>
 
 <label for="email"><b>Email</b></label>
  <div class = "userborder">
- <input type="text" id = "email" placeholder="Email" name="email"></div>
+ <input type="text" id = "email" placeholder="Email" name="email" required></div>
 <p class="usererror"></p>
 <label for="password"><b>Password</b></label>
  <div class = "passborder">
- <input type="password" id = "password" placeholder="Password" name="password"></div>
+ <input type="password" id = "password" placeholder="Password" name="password" required></div>
 <p class="passerror"></p>
    <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
