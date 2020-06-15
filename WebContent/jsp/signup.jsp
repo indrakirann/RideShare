@@ -167,11 +167,11 @@ $(document).ready(function(){
 
   <input type="text" id = "lname" placeholder="Last Name*" name="lname">
 
-  <input type="text" id = "email" placeholder="Enter Email" name="email">
+  <input type="text" id = "email" placeholder="Enter Email*" name="email">
 
-   <input type="password" id = "password" placeholder="Enter Password" name="password">
+   <input type="password" id = "password" placeholder="Enter Password*" name="password">
 
-   <input type="password" id = "rptpassword" placeholder="Repeat Password" name="rptpassword">
+   <input type="password" id = "rptpassword" placeholder="Repeat Password*" name="rptpassword">
 
    <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me

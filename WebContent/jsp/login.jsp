@@ -148,13 +148,12 @@ $(document).ready(function(){
   <hr>
    <p class="fielderror"></p>
 
-<label for="email"><b>Email</b></label>
  <div class = "userborder">
- <input type="text" id = "email" placeholder="Email" name="email" required></div>
+ <input type="text" id = "email" placeholder="Email*" name="email" required></div>
 <p class="usererror"></p>
-<label for="password"><b>Password</b></label>
+
  <div class = "passborder">
- <input type="password" id = "password" placeholder="Password" name="password" required></div>
+ <input type="password" id = "password" placeholder="Password*" name="password" required></div>
 <p class="passerror"></p>
    <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
