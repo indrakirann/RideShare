@@ -10,7 +10,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 public class Connection {
-	private static final String DBNAME = "RideShare";
 
 	public static MongoClient getConnection() {
 		String uri = "mongodb+srv://admin:NEjfExHjfdi6cSrk@chiragcluster-cqkko.mongodb.net/test";
@@ -21,20 +20,20 @@ public class Connection {
 	}
 	public static MongoCollection<Document> saveCollection(String CollectionName) {
 		
-		MongoDatabase database = getConnection().getDatabase(DBNAME);
+		MongoDatabase database = getConnection().getDatabase("RideShare");
 		MongoCollection<Document> collection = database.getCollection(CollectionName);
 		return collection;
 	}
 
-	public static boolean saveDoc(String CollectionName, Document doc) {
-		MongoDatabase database = getConnection().getDatabase(DBNAME);
+	public static boolean save(String CollectionName, Document doc) {
+		MongoDatabase database = getConnection().getDatabase("RideShare");
 		MongoCollection<Document> collection = database.getCollection(CollectionName);
 		collection.insertOne(doc);
 		return true;
 	}
 
 	public static MongoCollection<Document> readAllData(String collectionName) {
-		MongoDatabase database = getConnection().getDatabase(DBNAME);
+		MongoDatabase database = getConnection().getDatabase("RideShare");
 		return database.getCollection(collectionName);
 
 	}

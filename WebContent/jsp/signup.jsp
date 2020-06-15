@@ -163,19 +163,14 @@ $(document).ready(function(){
   <p><b>Please fill in this form to create an account. Already have an account?</b> <a href="http://localhost:8080/RideShare/login">Login!</a></p>
   <hr>
   <p class = "fielderror"> </p>
-  <label for="fname"><b>First Name</b></label>
-  <input type="text" id = "fname" placeholder="First Name" name="fname">
+  <input type="text" id = "fname" placeholder="First Name*" name="fname">
 
-  <label for="lname"><b>Last Name</b></label>
-  <input type="text" id = "lname" placeholder="Last Name" name="lname">
+  <input type="text" id = "lname" placeholder="Last Name*" name="lname">
 
-  <label for="email"><b>Email</b></label>
   <input type="text" id = "email" placeholder="Enter Email" name="email">
 
-   <label for="password"><b>Password</b></label>
    <input type="password" id = "password" placeholder="Enter Password" name="password">
 
-   <label for="rptpassword"><b>Repeat Password</b></label>
    <input type="password" id = "rptpassword" placeholder="Repeat Password" name="rptpassword">
 
    <label>

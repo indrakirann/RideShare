@@ -22,5 +22,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/mahekProgramming/Desktop/ant-javamail-1.6.5.jar" sourcepath="/Users/mahekProgramming/Desktop/ant-javamail-1.6.5.jar.zip"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -3,8 +3,6 @@ package controller;
 import org.bson.Document;
 import view.LoginRequest;
 import view.UserLogin;
-
-
 import com.mongodb.client.MongoCollection;
 import database.Connection;
 import static com.mongodb.client.model.Filters.*;

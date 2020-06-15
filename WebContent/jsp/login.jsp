@@ -161,10 +161,10 @@ $(document).ready(function(){
    </label>
 
 
-<form action = "http://localhost:8080/RideShare/signup">
-  <button id="signup" class = "signup"> Sign Up </button>
+<form action = "http://localhost:8080/RideShare/forgotpassword">
+  <button id="signup" class = "signup"> Forgot Password* </button>
   </form>
-    <button id="login" class = "login"> Log In </button>
+    <button id="login" class = "login"> Log In* </button>
 <!--  <form action = "http://localhost:8080/RideShare/profile">
   </form> -->
 </div>

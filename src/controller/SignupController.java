@@ -2,12 +2,10 @@ package controller;
 
 import model.User;
 import view.SignupError;
-
 import org.bson.Document;
 
 import com.mongodb.client.MongoCollection;
 import database.Connection;
-
 
 public class SignupController {
 	public boolean varError = false;

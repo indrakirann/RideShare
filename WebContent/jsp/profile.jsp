@@ -59,6 +59,9 @@ a {
 button:hover, a:hover {
   opacity: 0.7;
 }
+.logo, .output{
+  position: absolute;
+}
 </style>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="./js/profile.js"></script>
@@ -71,13 +74,12 @@ button:hover, a:hover {
 <div class="card">
 
 
-<img src="/Users/mahekProgramming/eclipse-workspace/RideShare/WebContent/jsp/profileCircle.png">
-
-
 <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
 <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+<div class = "overlap">
+<img src="http://localhost:8080/RideShare/images/profileCircle.png" id = "logo" alt="Avatar" style="width:200px">
 <p><img id="output" width="200" /></p>
-
+</div>
 <script>
 var loadFile = function(event) {
 	var image = document.getElementById('output');
@@ -85,8 +87,7 @@ var loadFile = function(event) {
 };
 </script>
 
-  <img src="http://localhost:8080/RideShare/images/profileCircle.png" id = "logo" alt="Avatar" style="width:200px">
-  <input type = "image" src = "http://localhost:8080/RideShare/images/profileCircle.png" alt = "Submit" accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+  
   <h1 >Mahek Maheshwari</h1>
   <p class="title" contenteditable = "true">Software Engineer | Film Enthusiast</p><br>
   <p>University of California, Berkeley</p>
