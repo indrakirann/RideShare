@@ -149,7 +149,7 @@ $(document).ready(function(){
    <p class="fielderror"></p>
 
  <div class = "userborder">
- <input type="text" id = "email" placeholder="Email*" name="email" required></div>
+ <input type="text" id = "email" placeholder="Email*" name="email" autofocus="autofocus"  required></div>
 <p class="usererror"></p>
 
  <div class = "passborder">
@@ -161,9 +161,9 @@ $(document).ready(function(){
 
 
 <form action = "http://localhost:8080/RideShare/forgotpassword">
-  <button id="signup" class = "signup"> Forgot Password* </button>
+  <button id="signup" class = "signup"> Forgot Password </button>
   </form>
-    <button id="login" class = "login"> Log In* </button>
+    <button id="login" class = "login"> Log In </button>
 <!--  <form action = "http://localhost:8080/RideShare/profile">
   </form> -->
 </div>

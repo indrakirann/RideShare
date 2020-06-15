@@ -30,6 +30,15 @@ button {
   width: 100%;
   opacity: 0.9;
 }
+.login {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+/* Float cancel and signup buttons and add an equal width */
+.forgotpassword, .login {
+  float: left;
+  width: 50%;
+}
 
 button:hover {
   opacity:1;
@@ -112,12 +121,13 @@ body {
 
   <hr><br>
 <p class="usererror"></p>
- <input type="text" id = "email" placeholder="Email" name="email">
+ <input type="text" id = "email" placeholder="Email*" autofocus="autofocus" name="email">
 
 
-<!--  <form action = "http://localhost:8080/RideShare/signup">
-  
-  </form>-->
+<form action = "http://localhost:8080/RideShare/login">
+  <button id="login" class = "login"> Back to Login </button>
+  </form>
+
 <button id="forgotpassword" class = "forgotpassword"> Submit </button>
 </div>
 </body>

@@ -17,6 +17,11 @@ input[type=text], input[type=password] {
   border: none;
   background: #f1f1f1;
 }
+input[type=password] {
+  float: left;
+  
+  width: 50%;
+}
 /* Add a background color when the inputs get focus */
 input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
@@ -33,15 +38,8 @@ button {
   width: 100%;
   opacity: 0.9;
 }
-.login {
-  padding: 14px 20px;
-  background-color: #f44336;
-}
 /* Float cancel and signup buttons and add an equal width */
-.signup, .login {
-  float: left;
-  width: 50%;
-}
+
 button:hover {
   opacity:1;
 }
@@ -55,7 +53,7 @@ hr {
   background-color: #fefefe;
   margin: 0% auto 0% auto; /* 2% from the top, 2% from the bottom and centered */
   border: 1px solid #888;
-  width: 50%;
+  width: 40%;
   height: 100%;
   padding-top: 40px;
   padding-bottom: 80px;
@@ -159,30 +157,24 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="container">
-  <h1>Sign Up</h1>
-  <p><b>Please fill in this form to create an account. Already have an account?</b> <a href="http://localhost:8080/RideShare/login">Login!</a></p>
+  <h1 align = "center">Sign Up</h1>
+  <p align = "center"><b> Already have an account?</b> <a href="http://localhost:8080/RideShare/login"><STYLE>A {text-decoration: none;} </STYLE>Login!</a></p>
   <hr>
   <p class = "fielderror"> </p>
-  <input type="text" id = "fname" placeholder="First Name*" name="fname">
+  <input type="text" id = "fname" placeholder="First Name*" name="fname" autofocus="autofocus" >
 
   <input type="text" id = "lname" placeholder="Last Name*" name="lname">
 
-  <input type="text" id = "email" placeholder="Enter Email*" name="email">
+  <input type="text" id = "email" placeholder="Email*" name="email">
 
-   <input type="password" id = "password" placeholder="Enter Password*" name="password">
-
-   <input type="password" id = "rptpassword" placeholder="Repeat Password*" name="rptpassword">
+  <input type="password" id = "password" placeholder="Enter Password*" name="password" required>
+  <input type="password" id = "rptpassword" placeholder="Repeat Password*" name="rptpassword" required>
+  <p class="rpterror"></p>
 
    <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
    </label>
 
-
-<form action = "http://localhost:8080/RideShare/login">
-  <button id="login" class = "login"> Back to Login </button>
-  </form>
-<!--  <form action = "http://localhost:8080/RideShare/login">
-</form> -->
   <button id="signup" class = "signup"> Submit </button>
 
 </div>

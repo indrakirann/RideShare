@@ -116,11 +116,9 @@ body {
   <p align = "center"><b>Please fill out the form below to update your password.</p>
 
   <hr><br>
-  <label for="email"></label>
-  <input type="text" id = "email" placeholder="Email*" name="email">
   <p class="emailerror"></p>
 <label for="code"></label>
-  <input type="text" id = "code" placeholder="Code*" name="code">
+  <input type="text" id = "code" placeholder="Code*" autofocus="autofocus" name="code" >
   <p class="emailerror"></p>
 <label for="password"></label>
   <input type="password" id = "newpass" placeholder="New Password*" name="newpass">
